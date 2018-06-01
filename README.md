@@ -12,6 +12,10 @@ curl {API_ENDPOINT} \
 -d '{YOUR_REQUEST_BODY}'
 ```
 
+## 配置公私钥
+
+示例代码中的公私钥配置在```PaymentConstant.java```中， 请仔细阅读[连连开放平台-配置公私钥](https://zealous-kare-7abde4.netlify.com/docs/development/signature-key-generation)， 依据文档配置商户公私钥与连连提供的公钥。
+
 ## 付款申请API
 
 调用付款申请的示例代码如下， 其中， ```PaymentRequestBean```是预处理请求报文的参数Bean, 组建完成后需要进行[加密](https://zealous-kare-7abde4.netlify.com/docs/send-money/instant/api-encrypt)生成```pay_load```， 之后直接做HTTP请求即可。
