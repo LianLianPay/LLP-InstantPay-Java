@@ -14,13 +14,13 @@ curl {API_ENDPOINT} \
 
 ## 配置公私钥
 
-示例代码中的公私钥配置在```PaymentConstant.java```中， 请仔细阅读[连连开放平台-配置公私钥](https://zealous-kare-7abde4.netlify.com/docs/development/signature-key-generation)， 依据文档配置商户公私钥与连连提供的公钥。
+示例代码中的公私钥配置在```PaymentConstant.java```中， 请仔细阅读[连连开放平台-配置公私钥](https://open.lianlianpay-inc.com/docs/development/signature-key-generation)， 依据文档配置商户公私钥与连连提供的公钥。
 
 ## 付款申请API
 
-调用付款申请的示例代码如下， 其中， ```PaymentRequestBean```是预处理请求报文的参数Bean, 组建完成后需要进行[加密](https://zealous-kare-7abde4.netlify.com/docs/send-money/instant/api-encrypt)生成```pay_load```， 之后直接做HTTP请求即可。
+调用付款申请的示例代码如下， 其中， ```PaymentRequestBean```是预处理请求报文的参数Bean, 组建完成后需要进行[加密](https://open.lianlianpay-inc.com/docs/send-money/instant/api-encrypt)生成```pay_load```， 之后直接做HTTP请求即可。
 
-> 请求参数的详细说明见[连连开放平台-付款申请API](https://zealous-kare-7abde4.netlify.com/apis/instant-apply)。
+> 请求参数的详细说明见[连连开放平台-付款申请API](https://open.lianlianpay-inc.com/apis/instant-apply)。
 
 ```java
 public static void main(String[] args) throws Exception {
@@ -106,9 +106,9 @@ if (StringUtils.isEmpty(response)) {
 
 ## 确认付款API
 
-确认付款API是供[实时付款复核](https://zealous-kare-7abde4.netlify.com/docs/send-money/instant/overview#%E5%AE%9E%E6%97%B6%E4%BB%98%E6%AC%BE%E7%9A%84%E5%A4%8D%E6%A0%B8)时使用的接口， 当付款申请API返回有```confirm_code```时需调用。
+确认付款API是供[实时付款复核](https://open.lianlianpay-inc.com/docs/send-money/instant/overview#%E5%AE%9E%E6%97%B6%E4%BB%98%E6%AC%BE%E7%9A%84%E5%A4%8D%E6%A0%B8)时使用的接口， 当付款申请API返回有```confirm_code```时需调用。
 
-> 请求参数的详细说明见[连连开放平台-确认付款API](https://zealous-kare-7abde4.netlify.com/apis/instant-confirm)。
+> 请求参数的详细说明见[连连开放平台-确认付款API](https://open.lianlianpay-inc.com/apis/instant-confirm)。
 
 ```java
 public static void main(String[] args) throws Exception {
@@ -153,7 +153,7 @@ public static void main(String[] args) throws Exception {
 
 ## 加密时提示```Illegal Key Size```的特殊说明
 
-当使用```Java```版本为6， 7或8时， 由于[连连提供的公钥](https://zealous-kare-7abde4.netlify.com/docs/development/signature-key-generation#%E9%85%8D%E7%BD%AE%E8%BF%9E%E8%BF%9E%E5%85%AC%E9%92%A5)超出了加密过程中使用到的[AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)加密方法的默认密钥长度限制， 需要替换您的开发环境中的```local_policy.jar```和```US_export_policy.jar```这两个jar包以去除密钥长度限制， 否则会在加密时抛出异常 ```Illegal Key Size```。
+当使用```Java```版本为6， 7或8时， 由于[连连提供的公钥](https://open.lianlianpay-inc.com/docs/development/signature-key-generation#%E9%85%8D%E7%BD%AE%E8%BF%9E%E8%BF%9E%E5%85%AC%E9%92%A5)超出了加密过程中使用到的[AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)加密方法的默认密钥长度限制， 需要替换您的开发环境中的```local_policy.jar```和```US_export_policy.jar```这两个jar包以去除密钥长度限制， 否则会在加密时抛出异常 ```Illegal Key Size```。
 
 Jar包替换地址为:
 
